@@ -75,11 +75,21 @@
           product.price=$('description').val();
           product.quantity=$('quantity').val();
         console.log(product);
+        
+        $ajax({
+          url:"/api/products",
+          method:"post",
+          data:product
+        }).done(function(response))
+          {console.log(response);
+          }).fail(function(response)){
+            console.log(response.responseText);
+            $("#error").text(response.responseText.message);
+          });
       }
       else {
         console.log("invalid input");
       }
       });
     </script>
-    </body> 
   </html>
