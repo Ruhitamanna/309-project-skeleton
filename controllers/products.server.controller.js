@@ -10,6 +10,12 @@ res.render('./../public/views/product/create.ejs', {
 		request: req
 	});
 };
+module.exports.view = function(req, res) {
+res.render('./../public/views/product/view.ejs', {
+		user: req.user || null,
+		request: req
+	});
+};
 
 
 

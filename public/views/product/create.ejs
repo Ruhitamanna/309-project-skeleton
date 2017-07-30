@@ -23,7 +23,7 @@
   </head>
   <body>
       <h1>Create New Product</h1>
-      <script src="lib/jquery/dist/jquery.min.js"></script>
+    
   
   <form id ="createProductForm" class="form-horizontal"onsubmit="return false;">
     <div class="form-group">
@@ -76,12 +76,13 @@
           product.quantity=$('quantity').val();
         console.log(product);
         
-        $ajax({
+        $.ajax({
           url:"/api/products",
           method:"post",
           data:product
         }).done(function(response))
           {console.log(response);
+          window.location.replace("/products/"+response_id);
           }).fail(function(response)){
             console.log(response.responseText);
             $("#error").text(response.responseText.message);
